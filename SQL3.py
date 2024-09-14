@@ -7,12 +7,13 @@ cursor.execute("INSERT INTO students (name, grade) VALUES ('Alice', 85.5)")
 cursor.execute("SELECT * FROM students")
 rows = cursor.fetchall()
 for row in rows:
- print(row)
+  print(row)
 # Save (commit) the changes
 connection.commit()
 #closing connection
 connection.close()
-cursor.execute("SELECT * FROM non_existing_table")
+try:
+   cursor.execute("SELECT * FROM non_existing_table")
 except sqlite3.OperationalError as e:
- print(f"An error occurred: {e}")
+  print(f"An error occurred: {e}")
 cursor.execute("INSERT INTO students (name, grade) VALUES (?, ?)", ('Bob', 92.3))
