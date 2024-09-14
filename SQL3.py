@@ -18,6 +18,6 @@ try:
    cursor.execute("SELECT * FROM non_existing_table")
 except sqlite3.OperationalError as e:
   print(f"An error occurred: {e}")
-cursor.execute("INSERT INTO students (id,name,subject,age, grade) VALUES (?, ?,?,?)", (110,'Bob','ADSD',27, 92.3))
+cursor.execute("INSERT INTO students (id,name,subject,age, grade) VALUES (?,?,?,?,?)", (110,'Bob','ADSD',27, 92.3))
 #closing connection
 connection.close()
